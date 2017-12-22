@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,61 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="db3-or-xqG">
+                                <rect key="frame" x="118.5" y="50" width="138" height="30"/>
+                                <state key="normal" title="保存图片到指定相册"/>
+                                <connections>
+                                    <action selector="actionOne:" destination="BYZ-38-t0r" eventType="touchUpInside" id="667-L6-ntP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gpp-YO-7br">
+                                <rect key="frame" x="126.5" y="110" width="123" height="30"/>
+                                <state key="normal" title="从相册中选择图片"/>
+                                <connections>
+                                    <action selector="actionTwo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aE4-j1-JxB"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DT4-63-HOM">
+                                <rect key="frame" x="0.0" y="273.5" width="375" height="120"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="Sgx-eQ-TS6"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kCw-6G-w2x">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DT4-63-HOM" secondAttribute="trailing" id="19A-LW-lAv"/>
+                            <constraint firstItem="db3-or-xqG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="6TA-Zd-ipt"/>
+                            <constraint firstItem="Gpp-YO-7br" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Cwf-Sy-MVP"/>
+                            <constraint firstItem="DT4-63-HOM" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="NS6-W5-8tI"/>
+                            <constraint firstItem="Gpp-YO-7br" firstAttribute="top" secondItem="db3-or-xqG" secondAttribute="bottom" constant="30" id="WTF-BP-n6f"/>
+                            <constraint firstItem="DT4-63-HOM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="d0h-sT-Fjl"/>
+                            <constraint firstItem="db3-or-xqG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hn5-rp-yOf"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <connections>
+                        <outlet property="collectionView" destination="DT4-63-HOM" id="9sl-uD-qGw"/>
+                        <outlet property="collectionViewH" destination="Sgx-eQ-TS6" id="gAu-bJ-kOY"/>
+                        <outlet property="flowLayout" destination="kCw-6G-w2x" id="Cei-Jz-fSX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-455" y="54"/>
         </scene>
     </scenes>
 </document>
